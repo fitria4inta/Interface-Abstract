@@ -6,13 +6,19 @@ class TransferBank extends Pembayaran implements Cetak {
 
     public function prosesPembayaran() {
         if ($this->validasi()) {
-            return "Transfer Bank sebesar Rp {$this->jumlah}";
+            return "Pembayaran Transfer Bank Berhasil";
         }
         return "Jumlah tidak valid";
     }
 
     public function cetakStruk() {
-        return "Struk Transfer Bank: Rp {$this->jumlah}";
+        return "
+        Metode : Transfer Bank <br>
+        Jumlah : Rp $this->jumlah <br>
+        Diskon : Rp ".$this->diskon()."<br>
+        Pajak : Rp ".$this->pajak()."<br>
+        Total Bayar : Rp ".$this->totalBayar()."
+        ";
     }
 }
 ?>
